@@ -11,6 +11,7 @@ enableScreens();
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Navigator from "./routes/homeStack";
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -32,30 +33,31 @@ export default function App() {
   }
 
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        screenOptions={{
-          headerStyle: { backgroundColor: "#eee" },
-          headerTintColor: "#444",
-        }}
-      >
-        <Stack.Screen
-          name="Home"
-          options={{ title: " Home Header" }}
-          component={Home}
-        />
-        <Stack.Screen
-          name="About"
-          options={{ title: "About header" }}
-          component={About}
-        />
-        <Stack.Screen
-          name="ReviewsDetails"
-          options={{ title: "Review Header" }}
-          component={ReviewsDetails}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <Navigator />
+    // <NavigationContainer>
+    //   <Stack.Navigator
+    //     screenOptions={{
+    //       headerStyle: { backgroundColor: "#eee" },
+    //       headerTintColor: "#444",
+    //     }}
+    //   >
+    //     <Stack.Screen
+    //       name="Home"
+    //       options={{ title: " Home Header" }}
+    //       component={Home}
+    //     />
+    //     <Stack.Screen
+    //       name="About"
+    //       options={{ title: "About header" }}
+    //       component={About}
+    //     />
+    //     <Stack.Screen
+    //       name="ReviewsDetails"
+    //       options={{ title: "Review Header" }}
+    //       component={ReviewsDetails}
+    //     />
+    //   </Stack.Navigator>
+    // </NavigationContainer>
   );
 }
 

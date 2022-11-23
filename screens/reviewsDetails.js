@@ -5,9 +5,10 @@ import { globalStyles } from "../styles/global";
 const ReviewsDetails = ({ route }) => {
   return (
     <View style={globalStyles.container}>
-      <Text>{route.params.title}</Text>
+      <Text> Review Details Screen</Text>
+      {/* <Text>{route.params.title}</Text>
       <Text>{route.params.body}</Text>
-      <Text>{route.params.rating}</Text>
+      <Text>{route.params.rating}</Text> */}
     </View>
   );
 };
