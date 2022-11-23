@@ -1,12 +1,18 @@
 import React, { useEffect } from "react";
 import * as SplashScreen from "expo-splash-screen";
 import Home from "./screens/home";
-import AppLoading from "expo-app-loading";
 import { StyleSheet, Text, View } from "react-native";
 import { useFonts } from "expo-font";
 import About from "./screens/about";
 import ReviewsDetails from "./screens/reviewsDetails";
+import { enableScreens } from "react-native-screens";
 
+enableScreens();
+
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+
+const Stack = createNativeStackNavigator();
 export default function App() {
   const [fontsLoaded] = useFonts({
     "Mali-Regular": require("./assets/fonts/Mali-Regular.ttf"),
@@ -25,7 +31,16 @@ export default function App() {
     SplashScreen.hideAsync();
   }
 
-  return <Home />;
+  return (
+    // <Home />
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="About" component={About} />
+        <Stack.Screen name="Home" component={Home} />
+        <Stack.Screen name="ReviewsDetails" component={ReviewsDetails} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
 }
 
 const styles = StyleSheet.create({

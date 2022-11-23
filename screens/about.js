@@ -1,10 +1,14 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Button } from "react-native";
 import React from "react";
 import { globalStyles } from "../styles/global";
 
-const About = () => {
+const About = ({ navigation }) => {
   return (
     <View style={globalStyles.container}>
+      <Button
+        title="ReviewsDetails"
+        onPress={() => navigation.navigate("ReviewsDetails")}
+      />
       <Text style={globalStyles.titleTxt}>About</Text>
     </View>
   );
