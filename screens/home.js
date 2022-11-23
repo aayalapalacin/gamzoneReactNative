@@ -1,4 +1,4 @@
-import { Text, View, FlatList, TouchableOpacity, Button } from "react-native";
+import { Text, View, FlatList, TouchableOpacity } from "react-native";
 import React, { useState } from "react";
 import { globalStyles } from "../styles/global";
 
@@ -8,27 +8,20 @@ const Home = ({ navigation }) => {
     { title: "Harry Potter", rating: 3, body: "good film", key: "2" },
     { title: "Willy Wonka", rating: 2, body: "bad film", key: "3" },
   ]);
-  const pressHandler = () => {
-    navigation.navigate("ReviewsDetails");
-  };
+
   return (
     <View style={globalStyles.container}>
-      <Text style={globalStyles.titleText}>Home Screen</Text>
-      <Button title="Go to reviews dets" onPress={pressHandler} />
+      <FlatList
+        data={reviews}
+        renderItem={({ item }) => (
+          <TouchableOpacity
+            onPress={() => navigation.navigate("ReviewsDetails", item)}
+          >
+            <Text style={globalStyles.titleText}>{item.title}</Text>
+          </TouchableOpacity>
+        )}
+      />
     </View>
-    // <View style={globalStyles.container}>
-    //   <Text style={globalStyles.titleTxt}>Homer</Text>
-    //   <FlatList
-    //     data={reviews}
-    //     renderItem={({ item }) => (
-    //       <TouchableOpacity
-    //         onPress={() => navigation.navigate("ReviewsDetails", item)}
-    //       >
-    //         <Text style={globalStyles.titleText}>{item.title}</Text>
-    //       </TouchableOpacity>
-    //     )}
-    //   />
-    // </View>
   );
 };
 
