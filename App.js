@@ -11,7 +11,7 @@ enableScreens();
 
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import Navigator from "./routes/homeStack";
+import Navigator from "./routes/drawer";
 
 const Stack = createNativeStackNavigator();
 export default function App() {
